@@ -5,13 +5,13 @@ import Prelude hiding (succ)
 type Church a = (a->a) -> a -> a
 -- >>> zero 1 2
 -- 2
-zero:: (a->a) -> a -> a
+zero:: Church a
 zero = \ x y -> y
 
 
 -- >>> one id 2
 -- 2
-one :: (a->a) -> a -> a
+one :: Church a
 one = \x y -> x y
 
 -- >>>k 1 2
