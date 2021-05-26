@@ -49,8 +49,8 @@ false = \x y -> y
 
 -- >>>printBoolean true
 -- "True"
---printBoolean :: Cbool String -> String
---printBoolean = \b -> b "True" "False"
+printBoolean :: Cbool String -> String
+printBoolean = \b -> b "True" "False"
 
 
 -- >>>printBoolean (not false)

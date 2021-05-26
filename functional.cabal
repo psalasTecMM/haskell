@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3f1209f102fd580de32e3a2ce2ae589da6a3e026e68ee1c5aae8c8931f6ce0d7
+-- hash: 11674108e23bc1377a566201f16e2989022823b5b2a58a2c26f4dcfa8b83b928
 
 name:           functional
 version:        0.1.0.0
@@ -27,12 +27,11 @@ source-repository head
 
 library
   exposed-modules:
-      BasicDataTypes
+      ArreglosTuplas
       Boolean
       ChurchNumerals
       Decisions
       Lib
-      Lists
   other-modules:
       Paths_functional
   hs-source-dirs:
