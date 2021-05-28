@@ -117,20 +117,22 @@ newArray = [1,2,3,4] ++ [5]
 -- (!!) Operator
 -- (!!) :: [a] -> Int -> a
 
--- >>> [1,2,3,4,5] !! 3
--- 4
+-- >>> [1,2,3,4,5] !! 5
+-- Prelude.!!: index too large
 
 -- >>> extract [1,2,3,4,5] 5
--- -1
+-- extract: index out of bounds
 
-extract [] n = -1
+extract [] n = error "extract: index out of bounds"
 extract (x:_) 0 = x
 extract (x:xs) n = extract xs (n-1)
 
--- extract [1,2,3,4,5] 3 = extract [2,3,4,5] n
--- extract [2,3,4,5] 2 = extract [3,4,5] n
--- extract [3,4,5] 1 = extract [4,5] n
--- extract [4,5] 0 = x
+-- extract [1,2,3,4,5] 6 = extract [2,3,4,5] 5
+-- extract [2,3,4,5] 5 = extract [3,4,5] 4
+-- extract [3,4,5] 4 = extract [4,5] 3
+-- extract [4,5] 3 = extract [5] 2
+-- extract [5] 2 = extract [] 1
+-- extract [] 1 = error "extract: index out of bounds"
 
 -- head & tail
 
@@ -187,7 +189,7 @@ prod' = foldr1 (\x y -> x * y )
 -- 10
 
 max' (x:y:xs) = if x >= y then max' (x:xs) else max' (y:xs)
-max' x = head x 
+max' x = head x
 
 -- >>> min' [1,10,8,4,5]
 -- 1
@@ -205,3 +207,50 @@ sum2 x = head x
 
 prod2 (x:y:xs) = prod2 ((x*y):xs)
 prod2 x = head x
+
+
+-- map Return an array applying a function f to an array a
+-- >>> pow2 [1,2,3,4,5]
+-- [1,4,9,16,25]
+
+times2 z = z*z
+pow2 a = map times2 a
+
+-- map2
+-- >>> map2 times2 [1,2,3,4,5]
+-- [1,4,9,16,25]
+map2 f [] = []
+map2 f (h:rest) = f h : map2 f rest
+
+-- f x : f x : f x ... : [] 
+
+-- filter
+
+divisor x = mod x 2 == 0
+
+-- >>> even2 [1,2,3,4,5,6,7,8,9,10]
+-- [2,4,6,8,10]
+
+even2 x = filter divisor x
+
+-- >>> filter2 divisor [1,2,3,4,5,6,7,8,9,10]
+-- [2,4,6,8,10]
+
+filter2 f [] = []
+filter2 f (h:rest) = if f h then h : filter2 f rest else filter2 f rest
+
+greater x y = if x>=y then True else False
+
+-- List comprehension
+
+-- >>> mayor3 [1,2,3,4,5,6,7,8]
+-- [4,5,6,7,8]
+mayor3 (x:xs) = [ x | x <- xs, x>3 ]
+
+-- >>> pow3 [1,2,3,4,5]
+-- [1,4,9,16,25]
+pow3 a = [ x*x | x <- a ]
+
+-- >>> paresOrdenados [1,2,3,4,5] [1,2,3,4,5]
+-- [(1,1),(1,2),(1,3),(2,1),(2,2),(3,1)]
+paresOrdenados a b = [ (x,y) | x<-a, y<-b , x/=y ]
