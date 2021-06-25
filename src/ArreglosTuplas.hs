@@ -25,6 +25,15 @@ type S = Char
 
 type Grammar = (N,Sigma,P,S)
 
+-- CRUD Invetarios
+-- productos []
+-- agregarProductos
+-- find*
+-- eliminarProductos
+-- editarProductos
+
+-- Scala -> Programacion Funcional
+
 -- CYK (Grammar g)
 
 type Point = (Integer, Integer)
@@ -244,8 +253,10 @@ greater x y = if x>=y then True else False
 -- List comprehension
 
 -- >>> mayor3 [1,2,3,4,5,6,7,8]
--- [4,5,6,7,8]
-mayor3 (x:xs) = [ x | x <- xs, x>3 ]
+-- [4,5]
+
+-- x pertenece a xs
+mayor3 (x:xs) = [ x | x <- xs, x>3, x<=5 ]
 
 -- >>> pow3 [1,2,3,4,5]
 -- [1,4,9,16,25]

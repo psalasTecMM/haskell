@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 11674108e23bc1377a566201f16e2989022823b5b2a58a2c26f4dcfa8b83b928
+-- hash: 9ed9cf9b1ce73f0c2fd92e4ad3eb7f7e9c9b5ee9eb9fcf2bd3cf6122844713ba
 
 name:           functional
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Arboles
       ArreglosTuplas
       Boolean
       ChurchNumerals

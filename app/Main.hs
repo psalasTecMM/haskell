@@ -1,7 +1,6 @@
 module Main where
-
-import ChurchNumerals
+        
+import Arboles
 
 main :: IO ()
-main = do
-        print(zero 1 2)
+main = print $ leaf (1,2)
